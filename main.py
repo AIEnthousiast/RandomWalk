@@ -67,11 +67,10 @@ syntax = "Syntax:\n\
     -l : number of simulations"
 
 
-
-
-
 class SyntaxicError(Exception):
     pass
+
+
 def take_one_step(seeded=False,seed=0):
     """
         Return 1 or -1 with equiprobability
@@ -79,7 +78,6 @@ def take_one_step(seeded=False,seed=0):
         if seeded is set to True, the seed argument is used as the seed of the 
         pseudo-random number generator
     """
-
     if seeded:
         np.random.seed(seed)
     return 1 if np.random.random() > 0.5 else -1
