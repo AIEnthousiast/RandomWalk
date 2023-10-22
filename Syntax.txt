@@ -1,0 +1,44 @@
+Syntax:
+    python3 main.py n k [l]
+    python3 main.py -s n
+    python3 main.py -{opts}*p{opts}* n k l
+    python3 main.py -{opts}*e{opts}*[m filename] n k
+Opts:
+    -t: time
+    -s: simulate
+    -e: exact
+    -p: approximate 
+    -m: memory (effective  if exact activated)
+    Default filename: memory.txt
+    By default, if nor exact nor simulate are activated and l is not specified, approximate is activated and l=1000\n\n\
+    -n: number of steps
+    -k : final position
+    -l : number of simulations"
+
+
+Examples:
+
+python3 main.py -s 1000
+--- simulate a 1D walk with 1000 steps
+
+python3 main.py 1000 200
+--- equivalent to python3 main.py -p 1000 200
+
+python3 main.py -p 1000 200 
+--- approximate the probability P(X1000 = 200) averaging over 1000 (default) simulations
+
+python3 main.py -p 1000 200 500
+--- approximate the probability P(X1000 = 200) averaging over 500  simulations
+
+python3 main.py -e 1000 200
+--- calculate exactly the probability P(X1000 = 200)
+
+python3 main.py -em memory.txt 1000 200
+--- calculate exactly the probability P(X1000 = 200)
+--- save the intermediary calculations in the file memory.txt
+
+python3 main.py  -stpe 1000 200 500
+--- simulate a 1D walk with 1000 steps
+--- enable timing 
+--- approximate the probability P(X1000 = 200) averaging over 500 simulations
+--- calculate the exact probability P(X1000 = 200)
